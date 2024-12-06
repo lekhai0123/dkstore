@@ -1,0 +1,219 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<title>AdminLTE 2 | Blank Page</title>
+<!-- Tell the browser to be responsive to screen width -->
+<meta
+	content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no"
+	name="viewport">
+<!-- Bootstrap 3.3.7 -->
+<link rel="stylesheet" th:href="@{/assets/css/bootstrap.min.css}">
+<link rel="stylesheet" th:href="@{/assets/css/font-awesome.min.css}">
+<link rel="stylesheet" th:href="@{/assets/css/AdminLTE.css}">
+<link rel="stylesheet" th:href="@{/assets/css/_all-skins.min.css}">
+<link rel="stylesheet" th:href="@{/assets/css/jquery-ui.css}">
+<link rel="stylesheet" th:href="@{/assets/css/style.css}" />
+<script th:src="@{/assets/js/angular.min.js}"></script>
+<script th:src="@{/assets/js/app.js}"></script>
+<link
+	href="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.13/css/select2.min.css"
+	rel="stylesheet" />
+
+</head>
+<body class="hold-transition skin-blue-light sidebar-mini">
+	<!-- Site wrapper -->
+	<div class="wrapper">
+
+		<div th:replace="~{/admin/layout/header :: header}"></div>
+
+		<!-- =============================================== -->
+
+		<!-- Left side column. contains the sidebar -->
+		<div th:replace="~{admin/layout/sidebar :: sidebar}"></div>
+
+		<!-- =============================================== -->
+
+		<!-- Content Wrapper. Contains page content -->
+		<div class="content-wrapper">
+			<!-- Content Header (Page header) -->
+			<section class="content-header">
+				<h1>
+					Quản lý sản phẩm
+				</h1>
+			</section>
+
+			<!-- Main content -->
+			<section class="content">
+				<div class="box box-primary">
+					<div class="box-header">
+						<h3 class="box-title">Thêm sản phẩm</h3>
+					</div>
+					<!-- /.box-header -->
+					<!-- form start -->
+					<form role="form" th:action="@{/admin/add-product}" method="post"
+						th:object="${product}" enctype="multipart/form-data" id="formSanpham">
+						<div class="box-body">
+							<div class="form-group">
+								<label for="name">Tên giày</label> <input type="text"
+									class="form-control" id="name" placeholder="Nhập tên giày"
+									th:field="*{name}">
+							</div>
+							<div class="form-group">
+								<label>Giá</label> <input type="text" class="form-control"
+									id="price" placeholder="Nhập giá" th:field="*{price}">
+							</div>
+							<div class="form-group">
+								<label>Thương hiệu</label> <select class="select2-selection"
+									style="width: 100%" th:field="*{brand.id}">
+									<option th:each="brand:${listCate}" th:value="${brand.id}"
+										th:text="${brand.name}"></option>
+								</select>
+							</div>
+							<div class="form-group">
+							    <label>Hình ảnh</label>
+							    <input type="file" class="form-control" id="imageFiles" name="images" multiple onchange="previewImages()">
+							    <div id="preview" style="margin-top: 10px; display: flex; gap: 10px;"></div>
+							</div>
+
+							<div class="form-group">
+								<label>Kích cỡ</label> <input type="text" class="form-control"
+									id="size" placeholder="Nhập kích cỡ" name="size">
+							</div>
+							<div class="form-group">
+								<label>Số lượng</label> <input type="text" class="form-control"
+									id="soluong" placeholder="Nhập số lượng"
+									name="tonkho">
+							</div>
+						<button id="addToList" class="btn btn-primary">Thêm vào
+							danh sách</button>
+							<hr>
+						<table class="table table-bordered" id="detailsTable">
+							<thead>
+								<tr>
+									<th>Kích cỡ</th>
+									<th>Số lượng</th>
+									<th>Hành động</th>
+								</tr>
+							</thead>
+							<tbody>
+								<!-- Các hàng sẽ được thêm vào đây -->
+							</tbody>
+						</table>
+						<hr>
+							<div class="form-group">
+								<label>Mô tả</label>
+								<textarea name="description" id="description"
+									th:field="*{description}"></textarea>
+							</div>
+						</div>
+						<!-- /.box-body -->
+						<div class="box-footer">
+						<input type="hidden" id="sizeList" name="sizeList"> 
+							<input type="hidden" id="soluongList" name="soluongList">
+							<button type="submit" class="btn btn-primary">Thêm</button>
+							<a class="btn btn-secondary" th:href="@{/admin/product}">Trở về</a>
+						</div>
+					</form>
+				</div>
+
+			</section>
+			<!-- /.content -->
+		</div>
+		<!-- /.content-wrapper -->
+		<div th:replace="~{admin/layout/footer :: footer}"></div>
+
+	</div>
+	<!-- ./wrapper -->
+
+	<!-- jQuery 3 -->
+
+	<script th:src="@{/assets/js/jquery.min.js}"></script>
+	<script th:src="@{/assets/js/jquery-ui.js}"></script>
+	<script th:src="@{/assets/js/bootstrap.min.js}"></script>
+	<script th:src="@{/assets/js/adminlte.min.js}"></script>
+	<script th:src="@{/assets/js/dashboard.js}"></script>
+	<script th:src="@{/assets/js/function.js}"></script>
+	<script
+		src="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.13/js/select2.min.js"></script>
+	<!-- CKEditor 5 CDN -->
+	<script
+		src="https://cdn.ckeditor.com/ckeditor5/38.0.0/classic/ckeditor.js"></script>
+
+	<script>
+		$(document).ready(function() {
+			$('.select2-selection').select2();
+		});
+	    ClassicEditor
+        .create(document.querySelector('#description'))
+        .catch(error => {
+            console.error(error);
+        });
+	    let sizeList = [];
+		let soluongList = [];
+
+		$(document).on('click', '#addToList', function (e) { 
+		    e.preventDefault();
+		    
+		    var size = $.trim($("#size").val());
+		    var soluong = $.trim($("#soluong").val());
+
+		    if (size !== "" && soluong !== "") {
+		        sizeList.push(size);
+		        soluongList.push(soluong);
+		        
+		        var newRow = `<tr><td>${size}</td><td>${soluong}</td><td><a href="#" class="delete-product">Xóa</a></td></tr>`;
+		        $("#detailsTable tbody").append(newRow);
+
+		        // Làm trống input sau khi thêm
+		        $("#soluong").val('');
+		        $("#size").val('');
+		    }
+		});
+
+		// Trước khi gửi form, hãy gán giá trị cho các input ẩn
+		$("#formSanpham").submit(function() {
+		    $("#sizeList").val(sizeList.join(","));
+		    $("#soluongList").val(soluongList.join(","));
+		});
+
+		$(document).on('click', '.delete-product', function (e) {
+		    e.preventDefault();
+		    var row = $(this).closest('tr'); // Lấy hàng chứa nút xóa
+		    var size = parseInt(row.find('td:nth-child(1)').text());
+		    var soluong = parseInt(row.find('td:nth-child(2)').text());
+		 // Xóa hàng
+	        var index = row.index();
+	        row.remove();
+
+	        // Xóa giá trị tại vị trí index khỏi các danh sách
+	        sizeList.splice(index, 1);
+	        soluongList.splice(index, 1);
+		});
+		 function previewImages() {
+		        const preview = document.getElementById('preview');
+		        const files = document.getElementById('imageFiles').files;
+
+		        // Xóa các ảnh cũ
+		        preview.innerHTML = '';
+
+		        // Xử lý từng tệp
+		        for (const file of files) {
+		            const reader = new FileReader();
+
+		            reader.onload = (e) => {
+		                const img = document.createElement('img');
+		                img.src = e.target.result;
+		                img.style.width = '100px';
+		                img.style.height = '100px';
+		                img.style.objectFit = 'cover';
+		                preview.appendChild(img);
+		            };
+
+		            reader.readAsDataURL(file);
+		        }
+		    }
+	</script>
+</body>
+</html>

@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<title>AdminLTE 2 | Blank Page</title>
+<!-- Tell the browser to be responsive to screen width -->
+<meta
+	content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no"
+	name="viewport">
+<!-- Bootstrap 3.3.7 -->
+<link rel="stylesheet" th:href="@{/assets/css/bootstrap.min.css}">
+<link rel="stylesheet" th:href="@{/assets/css/font-awesome.min.css}">
+<link rel="stylesheet" th:href="@{/assets/css/AdminLTE.css}">
+<link rel="stylesheet" th:href="@{/assets/css/_all-skins.min.css}">
+<link rel="stylesheet" th:href="@{/assets/css/jquery-ui.css}">
+<link rel="stylesheet" th:href="@{/assets/css/style.css}" />
+<script th:src="@{/assets/js/angular.min.js}"></script>
+<script th:src="@{/assets/js/app.js}"></script>
+<link
+	href="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.13/css/select2.min.css"
+	rel="stylesheet" />
+</head>
+<body class="hold-transition skin-blue-light sidebar-mini">
+	<!-- Site wrapper -->
+	<div class="wrapper">
+
+		<div th:replace="~{/admin/layout/header :: header}"></div>
+
+		<!-- =============================================== -->
+
+		<!-- Left side column. contains the sidebar -->
+		<div th:replace="~{admin/layout/sidebar :: sidebar}"></div>
+
+		<!-- =============================================== -->
+
+		<!-- Content Wrapper. Contains page content -->
+		<div class="content-wrapper">
+			<!-- Content Header (Page header) -->
+			<section class="content-header">
+				<h1>
+					Quản lý sản phẩm
+				</h1>
+			</section>
+
+			<!-- Main content -->
+			<section class="content">
+				<div class="box box-primary">
+					<div class="box-header">
+						<h3 class="box-title">Nhập hàng</h3>
+					</div>
+					<!-- /.box-header -->
+					<!-- form start -->
+					<form id="formHoadon" role="form" th:action="@{/admin/add-chitietsanpham}"
+						method="post" th:object="${tonkho}">
+						<input type="hidden" name="idSanpham" th:value="${idsanpham}">
+						<div class="box-body">
+							<div class="form-group">
+							    <label>Sản phẩm</label>
+							    <input type="text" class="form-control"
+									id="gia" placeholder="Nhập giá" th:value="${products.name}" readonly>
+							</div>
+							<div class="form-group">
+								<label>Size</label> <input type="text" class="form-control"
+									id="size" placeholder="Nhập size" th:field="*{size}">
+							</div>
+							<div class="form-group">
+								<label>Số lượng</label> <input type="text" class="form-control"
+									id="soluong" placeholder="Nhập số lượng" th:field="*{tonkho}" >
+							</div>
+						</div>
+						<div class="box-footer">
+							<button type="submit" class="btn btn-primary">Nhập</button>
+							<a class="btn btn-secondary"
+								th:href="@{/admin/detail-product/{id}(id=${idsanpham})}">Trở về</a>
+						</div>
+					</form>
+				</div>
+
+			</section>
+			<!-- /.content -->
+		</div>
+		<!-- /.content-wrapper -->
+		<div th:replace="~{admin/layout/footer :: footer}"></div>
+
+	</div>
+	<!-- ./wrapper -->
+
+	<!-- jQuery 3 -->
+	<script th:src="@{/assets/js/jquery.min.js}"></script>
+	<script th:src="@{/assets/js/jquery-ui.js}"></script>
+	<script th:src="@{/assets/js/bootstrap.min.js}"></script>
+	<script th:src="@{/assets/js/adminlte.min.js}"></script>
+	<script th:src="@{/assets/js/dashboard.js}"></script>
+	<script th:src="@{/assets/js/function.js}"></script>
+	<div th:replace="~{admin/layout/scripts :: scripts}"></div>
+	<script
+		src="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.13/js/select2.min.js"></script>
+	<script>
+    $(document).ready(function() {
+        $('.select2-selection').select2();
+        $('#productDropdown').on('change', function() {
+            var selectedOption = $(this).find('option:selected');
+            var price = selectedOption.data('price');
+            $('#gia').val(price); 
+            calculateTotal(); 
+        });
+        function calculateTotal() {
+            var price = parseFloat($('#gia').val());
+            var quantity = parseFloat($('#soluong').val());
+            if (isNaN(price) || isNaN(quantity) || quantity <= 0) {
+                $('#totalPrice').text(0);
+                $('#tonggia').val(0);
+            } else {
+                var total = price * quantity;
+                $('#totalPrice').text(total); 
+                $('#tonggia').val(total); 
+                $('#tonggiasanpham').val(total); 
+            }
+        }
+        $('#soluong').on('input', function() {
+            calculateTotal();
+        });
+    });	
+	</script>
+</body>
+</html>

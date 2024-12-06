@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+
+<head>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<title>AdminLTE 2 | Blank Page</title>
+<!-- Tell the browser to be responsive to screen width -->
+<meta
+	content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no"
+	name="viewport">
+<!-- Bootstrap 3.3.7 -->
+<link rel="stylesheet" th:href="@{/assets/css/bootstrap.min.css}">
+<link rel="stylesheet" th:href="@{/assets/css/font-awesome.min.css}">
+<link rel="stylesheet" th:href="@{/assets/css/AdminLTE.css}">
+<link rel="stylesheet" th:href="@{/assets/css/_all-skins.min.css}">
+<link rel="stylesheet" th:href="@{/assets/css/jquery-ui.css}">
+<link rel="stylesheet" th:href="@{/assets/css/style.css}" />
+<script th:src="@{/assets/js/angular.min.js}"></script>
+<script th:src="@{/assets/js/app.js}"></script>
+<link
+	href="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.13/css/select2.min.css"
+	rel="stylesheet" />
+	<link href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/css/toastr.min.css" rel="stylesheet">
+</head>
+
+<body class="hold-transition skin-blue-light sidebar-mini">
+	<!-- Site wrapper -->
+	<div class="wrapper">
+
+		<div th:replace="~{/admin/layout/header :: header}"></div>
+
+		<!-- =============================================== -->
+
+		<!-- Left side column. contains the sidebar -->
+		<div th:replace="~{admin/layout/sidebar :: sidebar}"></div>
+
+		<!-- =============================================== -->
+
+		<!-- Content Wrapper. Contains page content -->
+		<div class="content-wrapper">
+			<!-- Content Header (Page header) -->
+			<section class="content-header">
+				<h1>
+					Blank page <small>it all starts here</small>
+				</h1>
+				<ol class="breadcrumb">
+					<li><a href="#"><i class="fa fa-dashboard"></i> Home</a></li>
+					<li><a href="#">Examples</a></li>
+					<li class="active">Blank page</li>
+				</ol>
+			</section>
+
+			<!-- Main content -->
+			<section class="content">
+				<div class="box box-primary">
+					<div class="box-header">
+						<h3 class="box-title">Quick Example</h3>
+					</div>
+					<!-- /.box-header -->
+					<!-- form start -->
+					<form role="form" th:action="@{/admin/add-user}" method="post"
+						th:object="${user}" enctype="multipart/form-data" id="addUserForm">
+						<div class="box-body">
+							<div class="form-group col-md-4">
+								<label for="fullname">Họ và tên</label> <input type="text"
+									class="form-control" id="fullname" placeholder="Enter user name"
+									th:field="*{fullName}">
+							</div>
+							<div class="form-group col-md-4">
+								<label for="Username">Username</label> <input type="text"
+									class="form-control" id="Username" placeholder="Enter user name"
+									th:field="*{userName}">
+							</div>
+							<div class="form-group col-md-4">
+								<label for="Email">Email</label> <input type="text"
+									class="form-control" id="Email" placeholder="Enter user name"
+									th:field="*{email}">
+							</div>
+							<div class="form-group col-md-6">
+								<label for="Password">Password</label> <input type="password"
+									class="form-control" id="Password" placeholder="Enter user name"
+									th:field="*{passWord}">
+							</div>
+							<div class="form-group col-md-6">
+								<label for="re-password">Xác nhận mật khẩu</label> <input type="password"
+									class="form-control" id="re-password" placeholder="Enter user name">
+							</div>
+							<div class="form-group col-md-6">
+								<label for="birthday">Ngày sinh</label> <input type="date"
+									class="form-control " id="birthday" placeholder="Enter user name"
+									th:field="*{birthday}">
+							</div>
+							<div class="form-group col-md-6">
+								<label for="gender">Giới tính</label> <select
+									class="form-control " th:field="*{gender}" id="gender">
+									<option value="Nam">Nam</option>
+									<option value="Nữ">Nữ</option>
+									<option value="Khác">Khác</option>
+								</select>
+							</div>
+							<div class="form-group col-md-6">
+								<label for="address">Địa chỉ</label> <input type="text"
+									class="form-control" id="address" placeholder="Enter user name"
+									th:field="*{address}">
+							</div>
+							<div class="form-group col-md-6">
+								<label for="phone">Số điện thoại</label> <input type="text"
+									class="form-control" id="phone" placeholder="Enter user name"
+									th:field="*{telephone}">
+							</div>
+						</div>
+						<!-- /.box-body -->
+
+						<div class="box-footer">
+							<button type="submit" class="btn btn-primary">Submit</button>
+						</div>
+					</form>
+				</div>
+
+			</section>
+			<!-- /.content -->
+		</div>
+		<!-- /.content-wrapper -->
+		<div th:replace="~{admin/layout/footer :: footer}"></div>
+
+	</div>
+	<!-- ./wrapper -->
+
+	<!-- jQuery 3 -->
+	<script th:src="@{/assets/js/jquery.min.js}"></script>
+	<script th:src="@{/assets/js/jquery-ui.js}"></script>
+	<script th:src="@{/assets/js/bootstrap.min.js}"></script>
+	<script th:src="@{/assets/js/adminlte.min.js}"></script>
+	<script th:src="@{/assets/js/dashboard.js}"></script>
+	<script th:src="@{/assets/js/function.js}"></script>
+	<script
+		src="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.13/js/select2.min.js"></script>
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/js/toastr.min.js"></script>
+	<script>
+
+		$(document).ready(function() {
+			$('.select2-selection').select2();
+		});
+		$(document).ready(function () {
+		    $('#addUserForm').on('submit', function (e) {
+		        e.preventDefault(); // Ngăn form gửi dữ liệu theo cách thông thường
+
+		        const password = $('#Password').val();
+		        const rePassword = $('#re-password').val();
+
+		        // Kiểm tra mật khẩu có ít nhất 8 ký tự và chứa 1 ký tự in hoa
+		        const passwordRegex = /^(?=.*[A-Z]).{8,}$/; // Ít nhất 8 ký tự và có 1 chữ cái in hoa
+
+		        if (!passwordRegex.test(password)) {
+		            toastr.error('Mật khẩu phải chứa ít nhất 8 ký tự và bao gồm 1 ký tự in hoa.');
+		            return;
+		        }
+
+		        // So sánh 2 ô mật khẩu
+		        if (password !== rePassword) {
+		            toastr.error('Mật khẩu và xác nhận mật khẩu không khớp.');
+		            return;
+		        }
+
+		        // Nếu mật khẩu hợp lệ và khớp, tiếp tục kiểm tra username qua AJAX
+		        const username = $('#Username').val();
+
+		        $.ajax({
+		            url: '/check-username',
+		            method: 'POST',
+		            data: { userName: username },
+		            success: function (response) {
+		                if (response === 'username_exists') {
+		                    toastr.error('Username đã tồn tại, vui lòng chọn tên khác.');
+		                } else if (response === 'username_available') {
+		                    // Nếu username hợp lệ, gửi form
+		                    $('#addUserForm')[0].submit();
+		                }
+		            },
+		            error: function () {
+		                toastr.error('Đã xảy ra lỗi, vui lòng thử lại sau.');
+		            }
+		        });
+		    });
+		});
+	</script>
+</body>
+
+</html>

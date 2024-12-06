@@ -1,0 +1,211 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <title>AdminLTE 2 | Log in</title>
+  <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
+   <link href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/css/toastr.min.css" rel="stylesheet">
+  <link rel="stylesheet" th:href="@{/assets/css/estilos.css}">
+</head>
+<body>
+    <div class="cod-container">
+        <div class="form-header">
+            <img th:src="@{/assets/img/logo3.jfif}" alt="DKStore">
+            <h1>DK<span>Store</span></h1>
+        </div>
+
+        <div class="form-content">
+            <form th:action="@{/login}" method="post" class="cod-form" id="loginForm">
+                <div class="form-title">
+                    <h3>Đăng nhập</h3>
+                </div>
+
+                <div class="input-group">
+                    <input type="text" class="form-input" name="username" id="login-username" placeholder=" ">
+                    <label class="label" for="login-username">Username</label>
+                </div>
+
+                <div class="input-group">
+                    <input type="password" class="form-input" name="password" id="login-password" placeholder=" " >
+                    <label class="label" for="login-password">Mật khẩu</label>
+                </div>
+
+
+                <div class="input-group">
+                    <input type="submit" class="form-input" id="loginButton" value="Đăng nhập">
+                    <p>Chưa có tài khoản? <a href="#" class="alt-form show-register">Đăng ký</a></p>
+                    <p><a href="#" class="alt-form show-forgot-password">Quên mật khẩu?</a></p>
+                </div>
+               
+            </form>
+        </div>
+        
+        <div class="form-content">
+            <form  th:action="@{/register}" method="post" class="cod-form1" id="registerForm">                
+			<div id="step1" class="form-step">
+			    <div class="form-title">
+			        <h3>Đăng ký</h3>
+			    </div>
+			    <div class="input-group">
+			        <input type="text" class="form-input" name="userName" id="reg-username" placeholder=" ">
+			        <label class="label" for="reg-username">Username</label>
+			    </div>
+			    <div class="input-group">
+			        <input type="email" class="form-input" name="email" id="reg-correo" placeholder=" ">
+			        <label class="label" for="reg-correo">Email</label>
+			    </div>
+			    <input type="button" class="next form-input" value="Tiếp tục">
+			</div>
+			
+			<div id="step2" class="form-step" style="display:none;">
+			    <div class="form-title">
+			        <h3>Mật khẩu</h3>
+			    </div>
+			    <div class="input-group">
+			        <input type="password" class="form-input" name="passWord" id="reg-pass" placeholder=" ">
+			        <label class="label" for="reg-pass">Mật khẩu</label>
+			    </div>
+			    <div class="input-group">
+			        <input type="password" class="form-input" name="re-passWord" id="reg-re-pass" placeholder=" ">
+					<label class="label" for="reg-re-pass">Xác nhận mật khẩu</label>
+			    </div>
+			    <span style="color:red;font-size:13px;margin-bottom:10px">(*) Mật khẩu phải có ít nhất 8 ký tự và 1 ký tự in hoa</span>
+			    <br>
+				<div class="form-row" style="padding-top:10px">
+				    <div class="input-container">
+				        <input type="button" class="prev form-input" value="Quay lại">
+				    </div>
+				    <div class="input-container">
+				        <input type="button" class="next form-input" value="Tiếp tục">
+				    </div>
+				</div>
+			</div>
+			
+			<div id="step3" class="form-step" style="display:none;">
+			    <div class="form-title">
+			        <h3>Thông tin cá nhân</h3>
+			    </div>
+			    <div class="input-group">
+			        <input type="text" class="form-input" name="fullName" id="reg-fullname" placeholder=" ">
+			        <label class="label" for="reg-fullname">Họ và tên</label>
+			    </div>
+			    <div class="input-group">
+			        <input type="date" class="form-input" name="birthday" id="reg-birthday">
+			        <label class="label" for="reg-birthday">Ngày sinh</label>
+			    </div>
+			    <div class="input-group">
+			        <select class="form-input" name="gender" id="reg-gender">
+			            <option value="Nam">Nam</option>
+			            <option value="Nữ">Nữ</option>
+			            <option value="Khác">Khác</option>
+			        </select>
+			        <label class="label" for="reg-gender">Giới tính</label>
+			    </div>
+				<div class="form-row">
+				    <div class="input-container">
+				        <input type="button" class="prev form-input" value="Quay lại">
+				    </div>
+				    <div class="input-container">
+				        <input type="button" class="next form-input" value="Tiếp tục">
+				    </div>
+				</div>
+			</div>
+			
+			<div id="step4" class="form-step" style="display:none;">
+			    <div class="form-title">
+			        <h3>Thông tin liên hệ</h3>
+			    </div>
+			    <div class="input-group">
+			        <input type="tel" class="form-input" name="telephone" id="reg-phone" placeholder=" ">
+			        <label class="label" for="reg-phone">Phone number</label>
+			    </div>
+			    <div class="input-group">
+			        <input type="text" class="form-input" name="address" id="reg-address" placeholder=" ">
+			        <label class="label" for="reg-address">Address</label>
+			    </div>
+				<div class="form-row">
+				    <div class="input-container">
+				        <input type="button" class="prev form-input" value="Quay lại">
+				    </div>
+				    <div class="input-container">
+				        <input type="button" class="next form-input" value="Đăng ký">
+				    </div>
+				</div>   
+			</div>     
+                <div class="input-group">
+                    <p>Đã có tài khoản? <a href="#" class="alt-form show-login">Đăng nhập</a></p>
+                </div>
+               
+            </form>
+        </div>
+        
+		<div class="form-content">
+		    <form th:action="@{/forgot-password}" method="post" class="cod-form" id="forgotPasswordForm" style="display: none;">
+		        <div class="form-title">
+		            <h3>Quên mật khẩu</h3>
+		        </div>
+		
+		        <div class="input-group">
+		            <input type="email" class="form-input" name="email" id="forgot-email" placeholder=" " required>
+		            <label class="label" for="forgot-email">Nhập Email của bạn</label>
+		        </div>
+		
+		        <div class="input-group">
+		            <input type="button" class="form-input" value="Gửi yêu cầu" id="submitForgotPassword">
+		            <p><a href="#" class="alt-form show-login">Đăng nhập</a></p>
+		        </div>
+		    </form>
+		</div>        
+    </div>  
+   
+
+    <script th:src="@{/assets/js/jquery-3.3.1.min.js}"></script>
+    <script th:src="@{/assets/js/form.js}"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/js/toastr.min.js"></script>
+	<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+	<script th:inline="javascript">
+	    /*<![CDATA[*/
+	    let successMessage = /*[[${successMessage}]]*/ null;
+	    let errorMessage = /*[[${errorMessage}]]*/ null;
+	
+	    if (successMessage !== null) {
+	        toastr.success(successMessage);
+	    }
+	
+	    if (errorMessage !== null) {
+	        toastr.error(errorMessage);
+	    }
+	    /*]]>*/
+	    /*<![CDATA[*/
+    document.getElementById("submitForgotPassword").addEventListener("click", function() {
+        var email = document.getElementById("forgot-email").value;
+
+        if (email === "") {
+            toastr.error("Email không được để trống!");
+            return;
+        }
+
+        // Gửi yêu cầu kiểm tra email qua AJAX
+        $.ajax({
+            url: '/check-email', // URL của controller kiểm tra email
+            type: 'POST',
+            data: { email: email },
+            success: function(response) {
+                if (response === 'email_available') {
+                    toastr.error("Email không tồn tại!");
+                } else if (response === 'email_exists') {
+                	 $('#forgotPasswordForm').submit();
+                }
+            },
+            error: function() {
+                toastr.error("Đã có lỗi xảy ra. Vui lòng thử lại sau.");
+            }
+        });
+    });
+    /*]]>*/
+	</script>
+
+	
+</body>
+</html>

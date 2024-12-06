@@ -1,0 +1,226 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+
+<!-- Basic Page Needs
+  ================================================== -->
+<meta charset="utf-8">
+
+<title>DKStore</title>
+
+<!-- Mobile Specific Metas
+  ================================================== -->
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="description" content="Construction Html5 Template">
+<meta name="viewport"
+	content="width=device-width, initial-scale=1.0, maximum-scale=5.0">
+<meta name="author" content="Themefisher">
+<meta name="generator" content="Themefisher Constra HTML Template v1.0">
+
+<!-- Favicon -->
+<link rel="shortcut icon" type="image/x-icon"
+	th:href="@{/fe/images/favicon.png}" />
+
+<!-- Themefisher Icon font -->
+<link rel="stylesheet"
+	th:href="@{/fe/plugins/themefisher-font/style.css}">
+<!-- bootstrap.min css -->
+<link rel="stylesheet"
+	th:href="@{/fe/plugins/bootstrap/css/bootstrap.min.css}">
+
+<!-- Animate css -->
+<link rel="stylesheet" th:href="@{/fe/plugins/animate/animate.css}">
+<!-- Slick Carousel -->
+<link rel="stylesheet" th:href="@{/fe/plugins/slick/slick.css}">
+<link rel="stylesheet" th:href="@{/fe/plugins/slick/slick-theme.css}">
+
+<!-- Main Stylesheet -->
+<link rel="stylesheet" th:href="@{/fe/css/style.css}">
+
+</head>
+
+<body id="body">
+
+	<!-- Start Top Header Bar -->
+	<div th:replace="~{/user/layout/header :: header}"></div>
+	<!-- End Top Header Bar -->
+
+
+	<!-- Main Menu Section -->
+	<div th:replace="~{/user/layout/menu :: menu}"></div>
+
+	<section class="user-dashboard page-wrapper">
+		<div class="container">
+			<div class="row">
+				<div class="col-md-12">
+					<ul class="list-inline dashboard-menu text-center">
+						<li><a href="dashboard.html">Dashboard</a></li>
+						<li><a class="active" href="order.html">Orders</a></li>
+						<li><a href="address.html">Address</a></li>
+						<li><a href="profile-details.html">Profile Details</a></li>
+					</ul>
+					<div class="dashboard-wrapper user-dashboard">
+						<div id="hoaDonTable" class="table-responsive">
+							<table class="table">
+								<thead>
+									<tr>
+										<th>Hoá đơn ID</th>
+										<th>Thời gian lập</th>
+										<th>Tổng số sản phẩm</th>
+										<th>Tổng hoá đơn</th>
+										<th>Status</th>
+										<th></th>
+									</tr>
+								</thead>
+								<tbody th:each="item:${hoaDonWithDetail}">
+									<tr>
+										<td th:text="${item.hoaDon.id}"></td>
+										<td th:text="${item.formattedNgaylap}"></td>
+										<td th:text="${item.soLuongChiTiet}"></td>
+										<td th:text="${item.hoaDon.tongtien}"></td>
+										<td><span
+											th:classappend="${item.hoaDon.trangthai != null 
+													        ? (item.hoaDon.trangthai ? 'label label-success' : 'label label-warning') 
+													        : 'label label-warning'}"
+											th:text="${item.hoaDon.trangthai != null 
+													        ? (item.hoaDon.trangthai ? 'Đã hoàn thành' : 'Chưa hoàn thành') 
+													        : 'Chưa xác định'}">
+										</span></td>
+										<td><button class="view-btn btn btn-default"
+												th:data-hoadon-id="${item.hoaDon.id}">View</button></td>
+
+
+									</tr>
+								</tbody>
+							</table>
+
+						</div>
+						<div id="chiTietHoaDonTable" style="display: none;"
+							class="table-responsive">
+							<!-- Dynamically populated with AJAX -->
+						</div>
+						<button id="backButton" style="display: none;"
+							class="btn btn-secondary">Quay lại</button>
+					</div>
+				</div>
+			</div>
+		</div>
+	</section>
+
+	<div th:replace="~{/user/layout/footer:: footer}"></div>
+
+
+
+	<!-- 
+    Essential Scripts
+    =====================================-->
+
+	<!-- Main jQuery -->
+	<script th:src="@{/fe/plugins/jquery/dist/jquery.min.js}"></script>
+	<!-- Bootstrap 3.1 -->
+	<script th:src="@{/fe/plugins/bootstrap/js/bootstrap.min.js}"></script>
+	<!-- Bootstrap Touchpin -->
+	<script
+		th:src="@{/fe/plugins/bootstrap-touchspin/dist/jquery.bootstrap-touchspin.min.js}"></script>
+	<!-- Instagram Feed Js -->
+	<script th:src="@{/fe/plugins/instafeed/instafeed.min.js}"></script>
+	<!-- Video Lightbox Plugin -->
+	<script th:src="@{/fe/plugins/ekko-lightbox/dist/ekko-lightbox.min.js}"></script>
+	<!-- Count Down Js -->
+	<script th:src="@{/fe/plugins/syo-timer/build/jquery.syotimer.min.js}"></script>
+
+	<!-- slick Carousel -->
+	<script th:src="@{/fe/plugins/slick/slick.min.js}"></script>
+	<script th:src="@{/fe/plugins/slick/slick-animation.min.js}"></script>
+
+
+
+
+	<!-- Main Js File -->
+	<script th:src="@{/fe/js/script.js}"></script>
+	<script>
+    document.addEventListener("DOMContentLoaded", function () {
+        document.querySelectorAll("strong").forEach(element => {
+            const value = parseFloat(element.innerHTML.trim());
+            if (!isNaN(value)) {
+                if (Number.isInteger(value)) {
+                    element.innerHTML = value.toFixed(0); // Xóa .0 nếu là số nguyên
+                }
+            }
+        });
+        document.querySelectorAll(".cart-price span").forEach(span => {
+            const value = parseFloat(span.textContent.trim());
+            if (!isNaN(value)) {
+                if (Number.isInteger(value)) {
+                    span.textContent = value.toFixed(0); // Xóa .0 nếu là số nguyên
+                } else {
+                    span.textContent = value.toFixed(2); // Làm tròn 2 chữ số thập phân nếu không phải số nguyên
+                }
+            }
+        });
+    });
+    document.addEventListener("DOMContentLoaded", function () {
+        // Xử lý sự kiện khi nhấn nút "View"
+        $(".view-btn").click(function() {
+            var hoadonId = $(this).data("hoadon-id");  // Lấy giá trị hoaDonId từ thuộc tính data-hoadon-id
+            console.log("HoaDon ID: ", hoadonId);  // Kiểm tra xem hoaDonId có đúng không
+
+            if (hoadonId) {
+                console.log("Sending AJAX request for HoaDon ID: " + hoadonId); // Log khi bắt đầu gửi yêu cầu AJAX
+
+                $.ajax({
+                    url:  hoadonId + "/chitiet",  // Đường dẫn tới API trả về chi tiết hóa đơn
+                    method: "GET",
+                    success: function(response) {
+                        console.log("AJAX Response received: ", response); // Kiểm tra phản hồi từ server
+
+                        if (response && response.chiTietHoaDons) {
+                            console.log("Received " + response.chiTietHoaDons.length + " chi tiết hóa đơn.");
+                            
+                            // Render bảng chi tiết hóa đơn vào bảng chiTietHoaDonTable
+                            var chiTietHtml = "<table class='table'>"; // Thêm class cho table
+							chiTietHtml += "<tr><th >Sản phẩm</th><th >Số lượng</th><th >Giá</th><th >Tổng giá</th></tr>"; // Thêm class cho th header
+							response.chiTietHoaDons.forEach(function(item, index) {
+							    chiTietHtml += "<tr >"; // Thêm class cho mỗi row
+							    chiTietHtml += "<td >" + item.productName + "</td>"; // Thêm class cho cột sản phẩm
+							    chiTietHtml += "<td >" + item.gia + "</td>"; // Thêm class cho cột giá
+							    chiTietHtml += "<td >" + item.soluong + "</td>"; // Thêm class cho cột số lượng
+							    chiTietHtml += "<td >" + item.tonggiasanpham + "</td>"; 
+
+							    chiTietHtml += "</tr>";
+							});
+							chiTietHtml += "</table>";
+                            $("#chiTietHoaDonTable").html(chiTietHtml).show(); // Hiển thị bảng chi tiết hóa đơn
+
+                            // Ẩn bảng hoaDonTable và nút quay lại
+                            $("#hoaDonTable").hide(); 
+                            $("#backButton").show();  // Hiển thị nút quay lại
+                        } else {
+                            console.log("No details found in the response.");
+                            alert("Không có chi tiết hóa đơn.");
+                        }
+                    },
+                    error: function(xhr, status, error) {
+                        console.log("Error occurred during AJAX request: ", error); // Log lỗi chi tiết
+                        console.log("Response Text: ", xhr.responseText); // Log response text để debug
+                        alert("Có lỗi xảy ra khi lấy chi tiết hóa đơn.");
+                    }
+                });
+            } else {
+                console.log("Invalid HoaDon ID received: ", hoadonId); // Log khi ID không hợp lệ
+                alert("HoaDon ID không hợp lệ!");
+            }
+        });
+
+        // Khi bấm nút "Back"
+        $("#backButton").click(function() {
+            console.log("Back button clicked. Hiding chiTietHoaDonTable and showing hoaDonTable.");
+            // Ẩn bảng ChiTietHoaDon và hiển thị lại bảng HoaDon
+            $("#chiTietHoaDonTable").hide();
+            $("#hoaDonTable").show();  // Hiển thị lại bảng hóa đơn
+            $("#backButton").hide();   // Ẩn nút quay lại
+        });
+    });
+</script>
+</body>
+</html>

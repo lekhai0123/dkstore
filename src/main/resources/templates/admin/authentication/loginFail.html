@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+  <title>Tài khoản chưa xác thực</title>
+  <style type="text/css">
+    html {
+        font-size: 62.5%;
+    }
+    body {
+        background-color: #fff;
+        color: #000;
+        font-family: helvetica, arial, sans-serif;
+        font-size: 1.4em;
+        line-height: 1.5;
+    }
+    .centered {
+      position: fixed;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+    }
+    .emoji {
+      font-size: 9em;
+      text-align: center;
+    }
+    .title {
+      font-size: 3em;
+      text-align: center;
+      line-height: 0em;
+      color: grey;
+    }
+    .text {
+      text-align: center;
+    }
+  </style>
+</head>
+<body class="centered">
+  <div class="emoji"><img th:src="@{/assets/img/lock.jpg}" width=200></div>
+   <h1>Tài khoản của bạn chưa được xác thực!</h1>
+    <p>Vui lòng kiểm tra hộp thư email của bạn và làm theo hướng dẫn để kích hoạt tài khoản của bạn.</p>
+    <p>Nếu bạn chưa nhận được email, hãy <a th:href="@{/resend-email/{username}(username=${username})}">nhấp vào đây để gửi lại email xác thực</a>.</p>
+</body>
+</html>

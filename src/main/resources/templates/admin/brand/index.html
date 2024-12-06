@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+
+<head>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<title>AdminLTE 2 | Blank Page</title>
+<!-- Tell the browser to be responsive to screen width -->
+<meta
+	content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no"
+	name="viewport">
+<!-- Bootstrap 3.3.7 -->
+<link rel="stylesheet" th:href="@{/assets/css/bootstrap.min.css}">
+<link rel="stylesheet" th:href="@{/assets/css/font-awesome.min.css}">
+<link rel="stylesheet" th:href="@{/assets/css/AdminLTE.css}">
+<link rel="stylesheet" th:href="@{/assets/css/_all-skins.min.css}">
+<link rel="stylesheet" th:href="@{/assets/css/jquery-ui.css}">
+<link rel="stylesheet" th:href="@{/assets/css/style.css}" />
+<script th:src="@{/assets/js/angular.min.js}"></script>
+<script th:src="@{/assets/js/app.js}"></script>
+</head>
+
+<body class="hold-transition skin-blue-light sidebar-mini">
+	<!-- Site wrapper -->
+	<div class="wrapper">
+
+		<div th:replace="~{/admin/layout/header :: header}"></div>
+
+		<!-- =============================================== -->
+
+		<!-- Left side column. contains the sidebar -->
+		<div th:replace="~{admin/layout/sidebar :: sidebar}"></div>
+
+		<!-- =============================================== -->
+
+		<!-- Content Wrapper. Contains page content -->
+		<div class="content-wrapper">
+			<!-- Content Header (Page header) -->
+			<section class="content-header">
+				<h1>
+					Quản lý thương hiệu
+				</h1>
+			</section>
+
+			<!-- Main content -->
+			<section class="content">
+				<div class="container-fluid">
+					<div class="row">
+						<div class="col-md-12">
+							<div class="box">
+								<div class="box-header">
+									<h3 class="box-title">Bảng thương hiệu</h3>
+									<div class="dataTables_length" id="example1_length">
+										<label class="form-inline"> Hiển thị <select
+											name="example1_length" aria-controls="example1"
+											class="form-control input-sm" id="pageSizeSelect"
+											th:value="${pageSize}">
+												<option value="2" th:selected="${pageSize == 2}">2</option>
+												<option value="5" th:selected="${pageSize == 5}">5</option>
+												<option value="10" th:selected="${pageSize == 10}">10</option>
+												<option value="20" th:selected="${pageSize == 20}">20</option>
+										</select> thương hiệu
+										</label>
+									</div>
+									<div class="box-tools">
+										<form>
+											<div class="input-group input-group-sm hidden-xs"
+												style="width: 200px;">
+												<input type="text" name="keyword"
+													class="form-control pull-right" placeholder="Search">
+												<div class="input-group-btn">
+													<button type="submit" class="btn btn-default">
+														<i class="fa fa-search"></i>
+													</button>
+												</div>
+											</div>
+										</form>
+									</div>
+								</div>
+								<!-- /.box-header -->
+								<div class="box-body">
+								<span > <a class="btn btn-success"
+										th:href="@{/admin/add-brand}">Thêm thương hiệu</a>
+									</span>
+									<div class="table-responsive">
+										<table class="table table-bordered">
+											<thead>
+												<tr>
+													<th style="width: 10px">ID</th>
+													<th>Logo</th>
+													<th>Tên thương hiệu</th>
+													<th>Xuất xứ</th>
+													<th>Trạng thái</th>
+													<th>Action</th>
+												</tr>
+											</thead>
+											<tbody>
+												<tr th:each="brand :${list}">
+													<td th:text="${brand.id}"></td>
+													<td><img th:src="@{${brand.logo_url}}"
+														style="width: 50px; height: 50px" /></td>
+													<td th:text="${brand.name}"></td>
+													<td th:text="${brand.countryName}"></td>
+													<td><span th:if="${brand.status}"
+														class="label label-success">Hiện</span> <span
+														th:if="${!brand.status}" class="label label-danger">Ẩn</span>
+													</td>
+													<td><a class="btn btn-warning"
+														th:href="@{/admin/edit-brand/{id}(id=${brand.id})}">Sửa</a>
+														<a class="btn btn-danger"
+														th:href="@{/admin/delete-brand/{id}(id=${brand.id})}"
+														onclick="return confirm('Bạn có chắc muốn xoá thương hiệu này?')">Xoá</a>
+													</td>
+												</tr>
+											</tbody>
+										</table>
+									</div>
+								</div>
+								<!-- /.box-body -->
+								<div class="box-footer clearfix">
+									<ul class="pagination pagination-sm m-0 pull-right">
+										<!-- Previous page link -->
+										<li th:if="${currentPage>1}" class="page-item"><a
+											class="page-link"
+											th:href="@{${keyword != null && keyword != '' ? '?keyword=' + keyword + '&' : '?'} + 'pageNo=' + ${currentPage-1} + '&size=' + ${pageSize}}">«</a>
+										</li>
+
+										<!-- Page number links -->
+										<li th:if="${totalPage != null && totalPage > 0}"
+											th:each="i : ${#numbers.sequence(1, totalPage)}"
+											th:classappend="${currentPage==i?'active':''}"
+											class="page-item"><a class="page-link" th:text="${i}"
+											th:href="@{${keyword != null && keyword != '' ? '?keyword=' + keyword + '&' : '?'} + 'pageNo=' + ${i} + '&size=' + ${pageSize}}"></a>
+										</li>
+
+										<!-- Next page link -->
+										<li th:if="${currentPage<totalPage}" class="page-item"><a
+											class="page-link"
+											th:href="@{${keyword != null && keyword != '' ? '?keyword=' + keyword + '&' : '?'} + 'pageNo=' + ${currentPage + 1} + '&size=' + ${pageSize}}">»</a>
+										</li>
+									</ul>
+
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</section>
+
+			<!-- /.content -->
+		</div>
+		<!-- /.content-wrapper -->
+		<div th:replace="~{admin/layout/footer :: footer}"></div>
+
+	</div>
+	<!-- ./wrapper -->
+
+	<!-- jQuery 3 -->
+
+	<div th:replace="~{admin/layout/scripts :: scripts}"></div>
+	<script>
+		document.getElementById("pageSizeSelect").addEventListener(
+				"change",
+				function() {
+					var selectedValue = this.value; // Lấy giá trị mới đã chọn từ select
+					var currentPage = new URLSearchParams(
+							window.location.search).get('pageNo') || 1; // Lấy số trang hiện tại từ URL, nếu không có thì mặc định là 1
+
+					// Tạo URL mới với tham số size và pageNo
+					var url = new URL(window.location.href); // Lấy URL hiện tại
+					url.searchParams.set("pageNo", currentPage); // Thiết lập lại số trang hiện tại
+					url.searchParams.set("size", selectedValue); // Thêm giới hạn số lượng phần tử
+
+					// Tải lại trang với URL mới
+					window.location.href = url.toString(); // Điều hướng tới URL mới
+				});
+	</script>
+</body>
+
+</html>

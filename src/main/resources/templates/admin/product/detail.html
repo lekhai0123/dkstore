@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<title>AdminLTE 2 | Blank Page</title>
+<!-- Tell the browser to be responsive to screen width -->
+<meta
+	content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no"
+	name="viewport">
+<!-- Bootstrap 3.3.7 -->
+<link rel="stylesheet" th:href="@{/assets/css/bootstrap.min.css}">
+<link rel="stylesheet" th:href="@{/assets/css/font-awesome.min.css}">
+<link rel="stylesheet" th:href="@{/assets/css/AdminLTE.css}">
+<link rel="stylesheet" th:href="@{/assets/css/_all-skins.min.css}">
+<link rel="stylesheet" th:href="@{/assets/css/jquery-ui.css}">
+<link rel="stylesheet" th:href="@{/assets/css/style.css}" />
+<script th:src="@{/assets/js/angular.min.js}"></script>
+<script th:src="@{/assets/js/app.js}"></script>
+<link
+	href="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.13/css/select2.min.css"
+	rel="stylesheet" />
+</head>
+<body class="hold-transition skin-blue-light sidebar-mini">
+	<!-- Site wrapper -->
+	<div class="wrapper">
+
+		<div th:replace="~{/admin/layout/header :: header}"></div>
+
+		<!-- =============================================== -->
+
+		<!-- Left side column. contains the sidebar -->
+		<div th:replace="~{admin/layout/sidebar :: sidebar}"></div>
+
+		<!-- =============================================== -->
+
+		<!-- Content Wrapper. Contains page content -->
+		<div class="content-wrapper">
+			<!-- Content Header (Page header) -->
+			<section class="content-header">
+				<h1>
+					Chi tiết sản phẩm
+				</h1>
+			</section>
+
+			<!-- Main content -->
+			<section class="content">
+				<div class="container-fluid">
+					<div class="row">
+						<div class="col-md-12">
+							<div class="box">
+								<div class="box-header">
+									<h3 class="box-title">Bảng tồn kho sản phẩm</h3>
+								</div>
+								<!-- /.box-header -->
+								<div class="box-body ">
+									<div class="table-responsive">
+										<div class="panel panel-info" th:each="product : ${product}" style="margin:5px 10px">
+											<div class="panel-heading">
+												<table style="width: 100%;">
+													<tr>
+														<th colspan="2" style="width: 25%;">ID: <span
+															th:text="${product.id}"></span></th>
+														<th colspan="2" style="width: 25%;">Tên sản phẩm: <span
+															th:text="${product.name}"></span>
+														</th>
+														<th colspan="2" style="width: 25%;">Giá bán: <span
+															th:text="${product.price}"></span></th>
+														<th colspan="2" style="width: 25%;"><a class="btn btn-success pull-right" th:href="@{'/admin/add-chitietsanpham'(idSanpham=${product.id})}">Nhập hàng</a></th>
+													</tr>
+												</table>
+											</div>
+											<div class="panel-body">
+												<table class="table table-bordered">
+													<thead>
+														<tr>
+															<th>Size</th>
+															<th>Số lượng tồn kho</th>
+															<th>Action</th>
+														</tr>
+													</thead>
+													<tbody>
+														<tr th:each="chitiet : ${product.sanPhamTonKhos}">
+															<td th:text="${chitiet.size}"></td>
+															<td th:text="${chitiet.tonkho}"></td>
+															<td><a class="btn btn-warning"
+														th:href="@{/admin/edit-chitietsanpham/{id}(id=${chitiet.id})}">Sửa</a>
+														<a class="btn btn-danger"
+														th:href="@{/admin/delete-chitietsanpham/{id}(id=${chitiet.id})}"
+														onclick="return confirm('Bạn có chắc muốn xoá chi tiết sản phẩm này?')">Xoá</a></td>
+														</tr>
+													</tbody>
+												</table>
+											</div>
+											<div class="panel-footer" style="padding-bottom:40px">
+												<div class="pull-right">
+													<a class="btn btn-secondary"
+														th:href="@{/admin/product}" >Trở về</a>
+												</div>
+											</div>
+										</div>
+									</div>
+								</div>
+								<!-- /.box-body -->
+							</div>
+						</div>
+					</div>
+				</div>
+			</section>
+			<!-- /.content -->
+		</div>
+		<!-- /.content-wrapper -->
+		<div th:replace="~{admin/layout/footer :: footer}"></div>
+
+	</div>
+	<!-- ./wrapper -->
+
+	<!-- jQuery 3 -->
+	<script th:src="@{/assets/js/jquery.min.js}"></script>
+	<script th:src="@{/assets/js/jquery-ui.js}"></script>
+	<script th:src="@{/assets/js/bootstrap.min.js}"></script>
+	<script th:src="@{/assets/js/adminlte.min.js}"></script>
+	<script th:src="@{/assets/js/dashboard.js}"></script>
+	<script th:src="@{/assets/js/function.js}"></script>
+	<div th:replace="~{admin/layout/scripts :: scripts}"></div>
+	<script
+		src="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.13/js/select2.min.js"></script>
+	<script>
+		$(document).ready(function() {
+			$('.select2-selection').select2();
+		    $('#productDropdown').on('change', function() {
+		        var selectedOption = $(this).find('option:selected'); // Lấy tùy chọn đã chọn
+		        var price = selectedOption.data('price'); // Lấy giá từ data-price
+
+		        $('#gia').val(price); // Cập nhật giá vào input
+		    });
+		});
+		let giabanList = [];
+		let soluongList = [];
+		let productIdList = [];
+		let tonggia = 0; // Khai báo biến tổng giá
+
+		$(document).on('click', '#addToList', function (e) { 
+		    e.preventDefault();
+		    
+		    var giaban = $.trim($("#gia").val());
+		    var soluong = $.trim($("#soluong").val());
+		    var productId = $("#productDropdown").val(); // Lấy giá trị ID sản phẩm
+
+		    if (giaban !== "" && soluong !== "" && productId !== null) {
+		        giabanList.push(giaban);
+		        soluongList.push(soluong);
+		        productIdList.push(productId); // Thêm productId vào danh sách
+		        
+		        var tongGiaChoHang = parseInt(giaban) * parseInt(soluong);
+		        tonggia += tongGiaChoHang; // Cộng dồn vào tổng giá
+		        
+		        var newRow = `<tr><td>${giaban}</td><td>${soluong}</td><td>${tongGiaChoHang}</td><td><a href="#" class="delete-product">Xóa</a></td></tr>`;
+		        $("#detailsTable tbody").append(newRow);
+
+		        // Làm trống input sau khi thêm
+		        $("#soluong").val('');
+		        
+		        // Cập nhật tổng giá hiển thị
+		        $("#totalPrice").text(tonggia);
+		    }
+		});
+
+		// Trước khi gửi form, hãy gán giá trị cho các input ẩn
+		$("#formHoadon").submit(function() {
+		    $("#giabanList").val(giabanList.join(","));
+		    $("#soluongList").val(soluongList.join(","));
+		    $("#productIdList").val(productIdList.join(",")); // Gán productIdList vào input ẩn
+		    $("#tonggia").val(tonggia); // Gán tổng giá vào input ẩn
+		    console.log("Giá bán:", giabanList);
+		    console.log("Số lượng:", soluongList);
+		    console.log("ID sản phẩm:", productIdList);
+		});
+
+		$(document).on('click', '.delete-product', function (e) {
+		    e.preventDefault();
+		    var row = $(this).closest('tr'); // Lấy hàng chứa nút xóa
+		    var gia = parseInt(row.find('td:nth-child(1)').text());
+		    var soluong = parseInt(row.find('td:nth-child(2)').text());
+		    var tongGiaChoHang = gia * soluong;
+
+		    // Cập nhật tổng giá
+		    tonggia -= tongGiaChoHang; 
+		    $("#totalPrice").text(tonggia); // Cập nhật lại tổng giá hiển thị
+
+		    // Xóa hàng
+		    row.remove();
+		    var index = row.index();
+		    giabanList.splice(index, 1);
+		    soluongList.splice(index, 1);
+		});
+
+	</script>
+</body>
+</html>

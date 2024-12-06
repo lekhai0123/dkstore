@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+
+<head>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<title>AdminLTE 2 | Blank Page</title>
+<!-- Tell the browser to be responsive to screen width -->
+<meta
+	content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no"
+	name="viewport">
+<!-- Bootstrap 3.3.7 -->
+<link rel="stylesheet" th:href="@{/assets/css/bootstrap.min.css}">
+<link rel="stylesheet" th:href="@{/assets/css/font-awesome.min.css}">
+<link rel="stylesheet" th:href="@{/assets/css/AdminLTE.css}">
+<link rel="stylesheet" th:href="@{/assets/css/_all-skins.min.css}">
+<link rel="stylesheet" th:href="@{/assets/css/jquery-ui.css}">
+<link rel="stylesheet" th:href="@{/assets/css/style.css}" />
+<script th:src="@{/assets/js/angular.min.js}"></script>
+<script th:src="@{/assets/js/app.js}"></script>
+<link
+	href="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.13/css/select2.min.css"
+	rel="stylesheet" />
+</head>
+
+<body class="hold-transition skin-blue-light sidebar-mini">
+	<!-- Site wrapper -->
+	<div class="wrapper">
+
+		<div th:replace="~{/admin/layout/header :: header}"></div>
+
+		<!-- =============================================== -->
+
+		<!-- Left side column. contains the sidebar -->
+		<div th:replace="~{admin/layout/sidebar :: sidebar}"></div>
+
+		<!-- =============================================== -->
+
+		<!-- Content Wrapper. Contains page content -->
+		<div class="content-wrapper">
+			<!-- Content Header (Page header) -->
+			<section class="content-header">
+				<h1>
+					Quản lý thương hiệu
+				</h1>
+			</section>
+
+			<!-- Main content -->
+			<section class="content">
+				<div class="box box-primary">
+					<div class="box-header">
+						<h3 class="box-title">Thêm thương hiệu</h3>
+					</div>
+					<!-- /.box-header -->
+					<!-- form start -->
+					<form role="form" th:action="@{/admin/add-brand}" method="post"
+						th:object="${brand}" enctype="multipart/form-data">
+						<div class="box-body">
+							<div class="form-group">
+								<label for="name">Tên thương hiệu</label> <input type="text"
+									class="form-control" id="name" placeholder="Nhập tên thương hiệu"
+									th:field="*{name}">
+							</div>
+							<div class="form-group">
+								<label for="country">Quốc Gia</label> <select id="country"
+									name="country" class="select2-selection" style="width: 100%"
+									th:field="*{country}">
+									<option th:each="country : ${country}"
+										th:value="${country.name()}" th:text="${country.getName()}">--
+										Select Country --</option>
+								</select>
+							</div>
+							<div class="form-group">
+								<label>Hình ảnh</label> <input type="file" class="form-control"
+									placeholder="Enter brand name" id="imageFile" name="logo_url1">
+							</div>
+							<div class="form-group">
+								<label>Trạng thái</label>
+								<div class="form-group">
+									<label class="radio-inline"> <input type="radio"
+										name="status" value="1" th:field="*{status}"> Hiện
+									</label> <label class="radio-inline"> <input type="radio"
+										name="status" value="0" th:field="*{status}"> Ẩn
+									</label>
+								</div>
+							</div>
+						</div>
+						<!-- /.box-body -->
+
+						<div class="box-footer">
+							<button type="submit" class="btn btn-primary">Thêm</button>
+							<a class="btn btn-secondary" th:href="@{/admin/brand}">Trở về</a>
+						</div>
+					</form>
+				</div>
+
+			</section>
+			<!-- /.content -->
+		</div>
+		<!-- /.content-wrapper -->
+		<div th:replace="~{admin/layout/footer :: footer}"></div>
+
+	</div>
+	<!-- ./wrapper -->
+
+	<!-- jQuery 3 -->
+	<script th:src="@{/assets/js/jquery.min.js}"></script>
+	<script th:src="@{/assets/js/jquery-ui.js}"></script>
+	<script th:src="@{/assets/js/bootstrap.min.js}"></script>
+	<script th:src="@{/assets/js/adminlte.min.js}"></script>
+	<script th:src="@{/assets/js/dashboard.js}"></script>
+	<script th:src="@{/assets/js/function.js}"></script>
+	<script
+		src="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.13/js/select2.min.js"></script>
+	<script>
+		$(document).ready(function() {
+			$('.select2-selection').select2();
+		});
+	</script>
+</body>
+
+</html>

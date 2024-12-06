@@ -1,0 +1,98 @@
+<section class="top-header" th:fragment="header">
+	<div class="container">
+		<div class="row">
+			<div class="col-md-4 col-xs-12 col-sm-4">
+				<div class="contact-number">
+					<i class="tf-ion-ios-telephone"></i> <span>+84776681248</span>
+				</div>
+			</div>
+			<div class="col-md-4 col-xs-12 col-sm-4">
+				<!-- Site Logo -->
+				<div class="logo text-center">
+					<a th:href="@{index.html}"> <!-- replace logo here --> <svg
+							width="135px" height="29px" viewBox="0 0 155 29" version="1.1"
+							xmlns="http://www.w3.org/2000/svg"
+							xmlns:xlink="http://www.w3.org/1999/xlink">
+							<g id="Page-1" stroke="none" stroke-width="1" fill="none"
+								fill-rule="evenodd" font-size="40"
+								font-family="AustinBold, Austin" font-weight="bold">
+								<g id="Group" transform="translate(-108.000000, -297.000000)"
+								fill="#000000">
+									<text id="AVIATO">
+										<tspan x="108.94" y="325">DKStore</tspan>
+									</text>
+								</g>
+							</g>
+						</svg>
+					</a>
+				</div>
+			</div>
+			<h1 sec:authentication="name"></h1>
+			<div class="col-md-4 col-xs-12 col-sm-4">
+				<!-- Cart -->
+				<ul class="top-menu text-right list-inline">
+					<li class="dropdown cart-nav dropdown-slide"><a
+						th:href="@{#!}" class="dropdown-toggle" data-toggle="dropdown"
+						data-hover="dropdown"> <i class="tf-ion-android-cart"></i>Cart
+					</a>
+						<div class="dropdown-menu cart-dropdown">
+							<!-- Cart Items -->
+							<div th:each="item : ${chiTietGioHang}" class="media">
+								<a class="pull-left" th:href="@{#!}"> <img
+									class="media-object" th:src="@{${item.product.mainImage}}"
+									alt="image" />
+								</a>
+								<div class="media-body">
+									<h4 class="media-heading">
+										<a th:href="@{#!}" th:text="${item.product.name}"></a>
+									</h4>
+									<div class="cart-price">
+										<span th:text="${item.soLuong} "></span> x <span
+											th:text="${item.product.price}"></span>
+									</div>
+									<h5>
+										<span>Total: </span><strong
+											th:utext="${#numbers.formatDecimal(item.soLuong * item.product.price, 2, 2)}"></strong>
+									</h5>
+								</div>
+								<a th:href="@{#!}" class="remove"><i class="tf-ion-close"></i></a>
+							</div>
+							<!-- / Cart Items -->
+
+							<div class="cart-summary">
+								<span>Total: </span><span th:text="${totalPrice}"></span>
+
+							</div>
+							<ul class="text-center cart-buttons">
+								<li><a th:href="@{/user/giohang}" class="btn btn-small">View
+										Cart</a></li>
+								<li><a th:href="@{/user/checkout/{id}(id=${giohangId})}"
+									class="btn btn-small btn-solid-border">Checkout</a></li>
+							</ul>
+						</div></li>
+
+					<!-- / Cart -->
+
+					<!-- Search -->
+					<li class="dropdown search dropdown-slide"><a th:href="@{#!}"
+						class="dropdown-toggle" data-toggle="dropdown"
+						data-hover="dropdown"><i class="tf-ion-ios-search-strong"></i>
+							Search</a>
+						<ul class="dropdown-menu search-dropdown">
+							<li>
+								<form action="post">
+									<input type="search" class="form-control"
+										placeholder="Search...">
+								</form>
+							</li>
+						</ul></li>
+					<!-- / Search -->
+
+				</ul>
+				<!-- / .nav .navbar-nav .navbar-right -->
+			</div>
+		</div>
+	</div>
+</section>
+
+

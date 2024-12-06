@@ -1,0 +1,187 @@
+2024-11-21T15:49:34.836+07:00  INFO 8428 --- [DKStore] [restartedMain] com.dkstore.DkStoreApplication           : Starting DkStoreApplication using Java 17.0.13 with PID 8428 (D:\Khai\javaProjects\DKStore\target\classes started by ADMIN in D:\Khai\javaProjects\DKStore)
+2024-11-21T15:49:34.836+07:00  INFO 8428 --- [DKStore] [restartedMain] com.dkstore.DkStoreApplication           : No active profile set, falling back to 1 default profile: "default"
+2024-11-21T15:49:35.016+07:00  INFO 8428 --- [DKStore] [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2024-11-21T15:49:35.043+07:00  INFO 8428 --- [DKStore] [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 25 ms. Found 6 JPA repository interfaces.
+2024-11-21T15:49:35.172+07:00  INFO 8428 --- [DKStore] [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port 8080 (http)
+2024-11-21T15:49:35.173+07:00  INFO 8428 --- [DKStore] [restartedMain] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2024-11-21T15:49:35.173+07:00  INFO 8428 --- [DKStore] [restartedMain] o.apache.catalina.core.StandardEngine    : Starting Servlet engine: [Apache Tomcat/10.1.31]
+2024-11-21T15:49:35.189+07:00  INFO 8428 --- [DKStore] [restartedMain] o.a.c.c.C.[Tomcat-3].[localhost].[/]     : Initializing Spring embedded WebApplicationContext
+2024-11-21T15:49:35.189+07:00  INFO 8428 --- [DKStore] [restartedMain] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 351 ms
+2024-11-21T15:49:35.229+07:00  INFO 8428 --- [DKStore] [restartedMain] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
+2024-11-21T15:49:35.233+07:00  INFO 8428 --- [DKStore] [restartedMain] o.h.c.internal.RegionFactoryInitiator    : HHH000026: Second-level cache disabled
+2024-11-21T15:49:35.240+07:00  INFO 8428 --- [DKStore] [restartedMain] o.s.o.j.p.SpringPersistenceUnitInfo      : No LoadTimeWeaver setup: ignoring JPA class transformer
+2024-11-21T15:49:35.240+07:00  INFO 8428 --- [DKStore] [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-33 - Starting...
+2024-11-21T15:49:35.243+07:00  INFO 8428 --- [DKStore] [restartedMain] com.zaxxer.hikari.pool.HikariPool        : HikariPool-33 - Added connection com.mysql.cj.jdbc.ConnectionImpl@4c345c91
+2024-11-21T15:49:35.243+07:00  INFO 8428 --- [DKStore] [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-33 - Start completed.
+2024-11-21T15:49:35.243+07:00  WARN 8428 --- [DKStore] [restartedMain] org.hibernate.orm.deprecation            : HHH90000025: MySQL8Dialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
+2024-11-21T15:49:35.244+07:00  WARN 8428 --- [DKStore] [restartedMain] org.hibernate.orm.deprecation            : HHH90000026: MySQL8Dialect has been deprecated; use org.hibernate.dialect.MySQLDialect instead
+2024-11-21T15:49:35.330+07:00  INFO 8428 --- [DKStore] [restartedMain] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2024-11-21T15:49:35.387+07:00  INFO 8428 --- [DKStore] [restartedMain] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2024-11-21T15:49:35.532+07:00  WARN 8428 --- [DKStore] [restartedMain] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2024-11-21T15:49:35.542+07:00  INFO 8428 --- [DKStore] [restartedMain] r$InitializeUserDetailsManagerConfigurer : Global AuthenticationManager configured with UserDetailsService bean with name customUserDetailService
+2024-11-21T15:49:35.558+07:00  INFO 8428 --- [DKStore] [restartedMain] o.s.b.a.w.s.WelcomePageHandlerMapping    : Adding welcome page template: index
+2024-11-21T15:49:35.583+07:00 DEBUG 8428 --- [DKStore] [restartedMain] s.w.s.m.m.a.RequestMappingHandlerMapping : 41 mappings in 'requestMappingHandlerMapping'
+2024-11-21T15:49:35.625+07:00 DEBUG 8428 --- [DKStore] [restartedMain] o.s.w.s.handler.SimpleUrlHandlerMapping  : Patterns [/webjars/**, /**] in 'resourceHandlerMapping'
+2024-11-21T15:49:35.642+07:00  WARN 8428 --- [DKStore] [restartedMain] o.s.s.c.a.web.builders.WebSecurity       : You are asking Spring Security to ignore Deferred [Mvc [pattern='/fe/**'], Ant [pattern='/fe/**']]. This is not recommended -- please use permitAll via HttpSecurity#authorizeHttpRequests instead.
+2024-11-21T15:49:35.642+07:00  WARN 8428 --- [DKStore] [restartedMain] o.s.s.c.a.web.builders.WebSecurity       : You are asking Spring Security to ignore Deferred [Mvc [pattern='/assets/**'], Ant [pattern='/assets/**']]. This is not recommended -- please use permitAll via HttpSecurity#authorizeHttpRequests instead.
+2024-11-21T15:49:35.642+07:00  WARN 8428 --- [DKStore] [restartedMain] o.s.s.c.a.web.builders.WebSecurity       : You are asking Spring Security to ignore Deferred [Mvc [pattern='/uploads/**'], Ant [pattern='/uploads/**']]. This is not recommended -- please use permitAll via HttpSecurity#authorizeHttpRequests instead.
+2024-11-21T15:49:35.670+07:00 DEBUG 8428 --- [DKStore] [restartedMain] s.w.s.m.m.a.RequestMappingHandlerAdapter : ControllerAdvice beans: 0 @ModelAttribute, 0 @InitBinder, 1 RequestBodyAdvice, 1 ResponseBodyAdvice
+2024-11-21T15:49:35.678+07:00 DEBUG 8428 --- [DKStore] [restartedMain] .m.m.a.ExceptionHandlerExceptionResolver : ControllerAdvice beans: 0 @ExceptionHandler, 1 ResponseBodyAdvice
+2024-11-21T15:49:35.732+07:00  INFO 8428 --- [DKStore] [restartedMain] o.s.b.d.a.OptionalLiveReloadServer       : LiveReload server is running on port 35729
+2024-11-21T15:49:35.748+07:00  INFO 8428 --- [DKStore] [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port 8080 (http) with context path '/'
+2024-11-21T15:49:35.755+07:00  INFO 8428 --- [DKStore] [restartedMain] com.dkstore.DkStoreApplication           : Started DkStoreApplication in 0.959 seconds (process running for 7900.733)
+2024-11-21T15:49:35.757+07:00  INFO 8428 --- [DKStore] [restartedMain] .ConditionEvaluationDeltaLoggingListener : Condition evaluation unchanged
+2024-11-21T15:50:39.502+07:00  INFO 8428 --- [DKStore] [File Watcher] rtingClassPathChangeChangedEventListener : Restarting due to 1 class path change (0 additions, 0 deletions, 1 modification)
+2024-11-21T15:50:39.556+07:00  INFO 8428 --- [DKStore] [Thread-128] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
+2024-11-21T15:50:39.557+07:00  INFO 8428 --- [DKStore] [Thread-128] com.zaxxer.hikari.HikariDataSource       : HikariPool-33 - Shutdown initiated...
+2024-11-21T15:50:39.559+07:00  INFO 8428 --- [DKStore] [Thread-128] com.zaxxer.hikari.HikariDataSource       : HikariPool-33 - Shutdown completed.
+2024-11-21T15:50:39.735+07:00  INFO 8428 --- [DKStore] [restartedMain] com.dkstore.DkStoreApplication           : Starting DkStoreApplication using Java 17.0.13 with PID 8428 (D:\Khai\javaProjects\DKStore\target\classes started by ADMIN in D:\Khai\javaProjects\DKStore)
+2024-11-21T15:50:39.736+07:00  INFO 8428 --- [DKStore] [restartedMain] com.dkstore.DkStoreApplication           : No active profile set, falling back to 1 default profile: "default"
+2024-11-21T15:50:39.923+07:00  INFO 8428 --- [DKStore] [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2024-11-21T15:50:39.934+07:00  INFO 8428 --- [DKStore] [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 10 ms. Found 6 JPA repository interfaces.
+2024-11-21T15:50:40.026+07:00  INFO 8428 --- [DKStore] [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port 8080 (http)
+2024-11-21T15:50:40.027+07:00  INFO 8428 --- [DKStore] [restartedMain] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2024-11-21T15:50:40.027+07:00  INFO 8428 --- [DKStore] [restartedMain] o.apache.catalina.core.StandardEngine    : Starting Servlet engine: [Apache Tomcat/10.1.31]
+2024-11-21T15:50:40.043+07:00  INFO 8428 --- [DKStore] [restartedMain] o.a.c.c.C.[Tomcat-3].[localhost].[/]     : Initializing Spring embedded WebApplicationContext
+2024-11-21T15:50:40.043+07:00  INFO 8428 --- [DKStore] [restartedMain] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 305 ms
+2024-11-21T15:50:40.082+07:00  INFO 8428 --- [DKStore] [restartedMain] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
+2024-11-21T15:50:40.085+07:00  INFO 8428 --- [DKStore] [restartedMain] o.h.c.internal.RegionFactoryInitiator    : HHH000026: Second-level cache disabled
+2024-11-21T15:50:40.091+07:00  INFO 8428 --- [DKStore] [restartedMain] o.s.o.j.p.SpringPersistenceUnitInfo      : No LoadTimeWeaver setup: ignoring JPA class transformer
+2024-11-21T15:50:40.092+07:00  INFO 8428 --- [DKStore] [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-34 - Starting...
+2024-11-21T15:50:40.094+07:00  INFO 8428 --- [DKStore] [restartedMain] com.zaxxer.hikari.pool.HikariPool        : HikariPool-34 - Added connection com.mysql.cj.jdbc.ConnectionImpl@5fbc3954
+2024-11-21T15:50:40.094+07:00  INFO 8428 --- [DKStore] [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-34 - Start completed.
+2024-11-21T15:50:40.094+07:00  WARN 8428 --- [DKStore] [restartedMain] org.hibernate.orm.deprecation            : HHH90000025: MySQL8Dialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
+2024-11-21T15:50:40.095+07:00  WARN 8428 --- [DKStore] [restartedMain] org.hibernate.orm.deprecation            : HHH90000026: MySQL8Dialect has been deprecated; use org.hibernate.dialect.MySQLDialect instead
+2024-11-21T15:50:40.171+07:00  INFO 8428 --- [DKStore] [restartedMain] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2024-11-21T15:50:40.190+07:00  INFO 8428 --- [DKStore] [restartedMain] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2024-11-21T15:50:40.295+07:00  WARN 8428 --- [DKStore] [restartedMain] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2024-11-21T15:50:40.302+07:00  INFO 8428 --- [DKStore] [restartedMain] r$InitializeUserDetailsManagerConfigurer : Global AuthenticationManager configured with UserDetailsService bean with name customUserDetailService
+2024-11-21T15:50:40.310+07:00  INFO 8428 --- [DKStore] [restartedMain] o.s.b.a.w.s.WelcomePageHandlerMapping    : Adding welcome page template: index
+2024-11-21T15:50:40.329+07:00 DEBUG 8428 --- [DKStore] [restartedMain] s.w.s.m.m.a.RequestMappingHandlerMapping : 41 mappings in 'requestMappingHandlerMapping'
+2024-11-21T15:50:40.362+07:00 DEBUG 8428 --- [DKStore] [restartedMain] o.s.w.s.handler.SimpleUrlHandlerMapping  : Patterns [/webjars/**, /**] in 'resourceHandlerMapping'
+2024-11-21T15:50:40.378+07:00  WARN 8428 --- [DKStore] [restartedMain] o.s.s.c.a.web.builders.WebSecurity       : You are asking Spring Security to ignore Deferred [Mvc [pattern='/fe/**'], Ant [pattern='/fe/**']]. This is not recommended -- please use permitAll via HttpSecurity#authorizeHttpRequests instead.
+2024-11-21T15:50:40.378+07:00  WARN 8428 --- [DKStore] [restartedMain] o.s.s.c.a.web.builders.WebSecurity       : You are asking Spring Security to ignore Deferred [Mvc [pattern='/assets/**'], Ant [pattern='/assets/**']]. This is not recommended -- please use permitAll via HttpSecurity#authorizeHttpRequests instead.
+2024-11-21T15:50:40.378+07:00  WARN 8428 --- [DKStore] [restartedMain] o.s.s.c.a.web.builders.WebSecurity       : You are asking Spring Security to ignore Deferred [Mvc [pattern='/uploads/**'], Ant [pattern='/uploads/**']]. This is not recommended -- please use permitAll via HttpSecurity#authorizeHttpRequests instead.
+2024-11-21T15:50:40.398+07:00 DEBUG 8428 --- [DKStore] [restartedMain] s.w.s.m.m.a.RequestMappingHandlerAdapter : ControllerAdvice beans: 0 @ModelAttribute, 0 @InitBinder, 1 RequestBodyAdvice, 1 ResponseBodyAdvice
+2024-11-21T15:50:40.402+07:00 DEBUG 8428 --- [DKStore] [restartedMain] .m.m.a.ExceptionHandlerExceptionResolver : ControllerAdvice beans: 0 @ExceptionHandler, 1 ResponseBodyAdvice
+2024-11-21T15:50:40.434+07:00  INFO 8428 --- [DKStore] [restartedMain] o.s.b.d.a.OptionalLiveReloadServer       : LiveReload server is running on port 35729
+2024-11-21T15:50:40.446+07:00  INFO 8428 --- [DKStore] [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port 8080 (http) with context path '/'
+2024-11-21T15:50:40.451+07:00  INFO 8428 --- [DKStore] [restartedMain] com.dkstore.DkStoreApplication           : Started DkStoreApplication in 0.753 seconds (process running for 7965.43)
+2024-11-21T15:50:40.453+07:00  INFO 8428 --- [DKStore] [restartedMain] .ConditionEvaluationDeltaLoggingListener : Condition evaluation unchanged
+2024-11-21T15:50:47.743+07:00  INFO 8428 --- [DKStore] [http-nio-8080-exec-1] o.a.c.c.C.[Tomcat-3].[localhost].[/]     : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2024-11-21T15:50:47.744+07:00  INFO 8428 --- [DKStore] [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
+2024-11-21T15:50:47.744+07:00 DEBUG 8428 --- [DKStore] [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Detected StandardServletMultipartResolver
+2024-11-21T15:50:47.744+07:00 DEBUG 8428 --- [DKStore] [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Detected AcceptHeaderLocaleResolver
+2024-11-21T15:50:47.744+07:00 DEBUG 8428 --- [DKStore] [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Detected FixedThemeResolver
+2024-11-21T15:50:47.745+07:00 DEBUG 8428 --- [DKStore] [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Detected org.springframework.web.servlet.view.DefaultRequestToViewNameTranslator@4c720001
+2024-11-21T15:50:47.745+07:00 DEBUG 8428 --- [DKStore] [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Detected org.springframework.web.servlet.support.SessionFlashMapManager@3cd9a34e
+2024-11-21T15:50:47.745+07:00 DEBUG 8428 --- [DKStore] [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : enableLoggingRequestDetails='false': request parameters and headers will be masked to prevent unsafe logging of potentially sensitive data
+2024-11-21T15:50:47.745+07:00  INFO 8428 --- [DKStore] [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Completed initialization in 1 ms
+2024-11-21T15:50:47.748+07:00 DEBUG 8428 --- [DKStore] [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : GET "/login", parameters={}
+2024-11-21T15:50:47.749+07:00 DEBUG 8428 --- [DKStore] [http-nio-8080-exec-1] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped to com.dkstore.controllers.admin.UserController#login()
+2024-11-21T15:50:47.751+07:00 DEBUG 8428 --- [DKStore] [http-nio-8080-exec-1] o.s.w.s.v.ContentNegotiatingViewResolver : Selected 'text/html' given [text/html, application/xhtml+xml, image/avif, image/webp, image/apng, application/xml;q=0.9, */*;q=0.8, application/signed-exchange;v=b3;q=0.7]
+2024-11-21T15:50:47.773+07:00 DEBUG 8428 --- [DKStore] [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Completed 200 OK
+2024-11-21T15:50:47.821+07:00 DEBUG 8428 --- [DKStore] [http-nio-8080-exec-2] o.s.web.servlet.DispatcherServlet        : GET "/assets/css/estilos.css", parameters={}
+2024-11-21T15:50:47.822+07:00 DEBUG 8428 --- [DKStore] [http-nio-8080-exec-2] o.s.w.s.handler.SimpleUrlHandlerMapping  : Mapped to ResourceHttpRequestHandler [classpath [META-INF/resources/], classpath [resources/], classpath [static/], classpath [public/], ServletContext [/]]
+2024-11-21T15:50:47.822+07:00 DEBUG 8428 --- [DKStore] [http-nio-8080-exec-3] o.s.web.servlet.DispatcherServlet        : GET "/assets/js/jquery-3.3.1.min.js", parameters={}
+2024-11-21T15:50:47.822+07:00 DEBUG 8428 --- [DKStore] [http-nio-8080-exec-4] o.s.web.servlet.DispatcherServlet        : GET "/assets/js/form.js", parameters={}
+2024-11-21T15:50:47.823+07:00 DEBUG 8428 --- [DKStore] [http-nio-8080-exec-3] o.s.w.s.handler.SimpleUrlHandlerMapping  : Mapped to ResourceHttpRequestHandler [classpath [META-INF/resources/], classpath [resources/], classpath [static/], classpath [public/], ServletContext [/]]
+2024-11-21T15:50:47.823+07:00 DEBUG 8428 --- [DKStore] [http-nio-8080-exec-5] o.s.web.servlet.DispatcherServlet        : GET "/assets/img/logo3.jfif", parameters={}
+2024-11-21T15:50:47.823+07:00 DEBUG 8428 --- [DKStore] [http-nio-8080-exec-4] o.s.w.s.handler.SimpleUrlHandlerMapping  : Mapped to ResourceHttpRequestHandler [classpath [META-INF/resources/], classpath [resources/], classpath [static/], classpath [public/], ServletContext [/]]
+2024-11-21T15:50:47.823+07:00 DEBUG 8428 --- [DKStore] [http-nio-8080-exec-5] o.s.w.s.handler.SimpleUrlHandlerMapping  : Mapped to ResourceHttpRequestHandler [classpath [META-INF/resources/], classpath [resources/], classpath [static/], classpath [public/], ServletContext [/]]
+2024-11-21T15:50:47.823+07:00 DEBUG 8428 --- [DKStore] [http-nio-8080-exec-2] o.s.web.servlet.DispatcherServlet        : Completed 200 OK
+2024-11-21T15:50:47.824+07:00 DEBUG 8428 --- [DKStore] [http-nio-8080-exec-4] o.s.web.servlet.DispatcherServlet        : Completed 200 OK
+2024-11-21T15:50:47.824+07:00 DEBUG 8428 --- [DKStore] [http-nio-8080-exec-3] o.s.web.servlet.DispatcherServlet        : Completed 200 OK
+2024-11-21T15:50:47.825+07:00 DEBUG 8428 --- [DKStore] [http-nio-8080-exec-5] o.s.web.servlet.DispatcherServlet        : Completed 200 OK
+2024-11-21T15:50:54.262+07:00  WARN 8428 --- [DKStore] [http-nio-8080-exec-6] o.s.s.c.bcrypt.BCryptPasswordEncoder     : Encoded password does not look like BCrypt
+2024-11-21T15:50:54.274+07:00 DEBUG 8428 --- [DKStore] [http-nio-8080-exec-7] o.s.web.servlet.DispatcherServlet        : GET "/account-not-confirmed?username=K@gmail.com", parameters={masked}
+2024-11-21T15:50:54.275+07:00 DEBUG 8428 --- [DKStore] [http-nio-8080-exec-7] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped to com.dkstore.controllers.admin.UserController#accountNotConfirmed(String, Model)
+2024-11-21T15:50:54.276+07:00 DEBUG 8428 --- [DKStore] [http-nio-8080-exec-7] o.s.w.s.v.ContentNegotiatingViewResolver : Selected 'text/html' given [text/html, application/xhtml+xml, image/avif, image/webp, image/apng, application/xml;q=0.9, */*;q=0.8, application/signed-exchange;v=b3;q=0.7]
+2024-11-21T15:50:54.277+07:00 DEBUG 8428 --- [DKStore] [http-nio-8080-exec-7] o.s.web.servlet.DispatcherServlet        : Completed 200 OK
+2024-11-21T15:50:55.947+07:00 DEBUG 8428 --- [DKStore] [http-nio-8080-exec-9] o.s.web.servlet.DispatcherServlet        : GET "/login", parameters={}
+2024-11-21T15:50:55.947+07:00 DEBUG 8428 --- [DKStore] [http-nio-8080-exec-9] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped to com.dkstore.controllers.admin.UserController#login()
+2024-11-21T15:50:55.947+07:00 DEBUG 8428 --- [DKStore] [http-nio-8080-exec-9] o.s.w.s.v.ContentNegotiatingViewResolver : Selected 'text/html' given [text/html, application/xhtml+xml, image/avif, image/webp, image/apng, application/xml;q=0.9, */*;q=0.8, application/signed-exchange;v=b3;q=0.7]
+2024-11-21T15:50:55.951+07:00 DEBUG 8428 --- [DKStore] [http-nio-8080-exec-9] o.s.web.servlet.DispatcherServlet        : Completed 200 OK
+2024-11-21T15:50:55.993+07:00 DEBUG 8428 --- [DKStore] [http-nio-8080-exec-10] o.s.web.servlet.DispatcherServlet        : GET "/assets/css/estilos.css", parameters={}
+2024-11-21T15:50:55.993+07:00 DEBUG 8428 --- [DKStore] [http-nio-8080-exec-10] o.s.w.s.handler.SimpleUrlHandlerMapping  : Mapped to ResourceHttpRequestHandler [classpath [META-INF/resources/], classpath [resources/], classpath [static/], classpath [public/], ServletContext [/]]
+2024-11-21T15:50:55.994+07:00 DEBUG 8428 --- [DKStore] [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : GET "/assets/js/jquery-3.3.1.min.js", parameters={}
+2024-11-21T15:50:55.994+07:00 DEBUG 8428 --- [DKStore] [http-nio-8080-exec-2] o.s.web.servlet.DispatcherServlet        : GET "/assets/js/form.js", parameters={}
+2024-11-21T15:50:55.994+07:00 DEBUG 8428 --- [DKStore] [http-nio-8080-exec-4] o.s.web.servlet.DispatcherServlet        : GET "/assets/img/logo3.jfif", parameters={}
+2024-11-21T15:50:55.994+07:00 DEBUG 8428 --- [DKStore] [http-nio-8080-exec-1] o.s.w.s.handler.SimpleUrlHandlerMapping  : Mapped to ResourceHttpRequestHandler [classpath [META-INF/resources/], classpath [resources/], classpath [static/], classpath [public/], ServletContext [/]]
+2024-11-21T15:50:55.994+07:00 DEBUG 8428 --- [DKStore] [http-nio-8080-exec-2] o.s.w.s.handler.SimpleUrlHandlerMapping  : Mapped to ResourceHttpRequestHandler [classpath [META-INF/resources/], classpath [resources/], classpath [static/], classpath [public/], ServletContext [/]]
+2024-11-21T15:50:55.994+07:00 DEBUG 8428 --- [DKStore] [http-nio-8080-exec-4] o.s.w.s.handler.SimpleUrlHandlerMapping  : Mapped to ResourceHttpRequestHandler [classpath [META-INF/resources/], classpath [resources/], classpath [static/], classpath [public/], ServletContext [/]]
+2024-11-21T15:50:55.995+07:00 DEBUG 8428 --- [DKStore] [http-nio-8080-exec-10] o.s.web.servlet.DispatcherServlet        : Completed 200 OK
+2024-11-21T15:50:55.996+07:00 DEBUG 8428 --- [DKStore] [http-nio-8080-exec-2] o.s.web.servlet.DispatcherServlet        : Completed 200 OK
+2024-11-21T15:50:55.996+07:00 DEBUG 8428 --- [DKStore] [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Completed 200 OK
+2024-11-21T15:50:55.997+07:00 DEBUG 8428 --- [DKStore] [http-nio-8080-exec-4] o.s.web.servlet.DispatcherServlet        : Completed 200 OK
+2024-11-21T15:52:26.342+07:00  INFO 8428 --- [DKStore] [File Watcher] rtingClassPathChangeChangedEventListener : Restarting due to 1 class path change (0 additions, 0 deletions, 1 modification)
+2024-11-21T15:52:26.378+07:00  INFO 8428 --- [DKStore] [Thread-132] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
+2024-11-21T15:52:26.379+07:00  INFO 8428 --- [DKStore] [Thread-132] com.zaxxer.hikari.HikariDataSource       : HikariPool-34 - Shutdown initiated...
+2024-11-21T15:52:26.380+07:00  INFO 8428 --- [DKStore] [Thread-132] com.zaxxer.hikari.HikariDataSource       : HikariPool-34 - Shutdown completed.
+2024-11-21T15:52:26.486+07:00  INFO 8428 --- [DKStore] [restartedMain] com.dkstore.DkStoreApplication           : Starting DkStoreApplication using Java 17.0.13 with PID 8428 (D:\Khai\javaProjects\DKStore\target\classes started by ADMIN in D:\Khai\javaProjects\DKStore)
+2024-11-21T15:52:26.486+07:00  INFO 8428 --- [DKStore] [restartedMain] com.dkstore.DkStoreApplication           : No active profile set, falling back to 1 default profile: "default"
+2024-11-21T15:52:26.658+07:00  INFO 8428 --- [DKStore] [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2024-11-21T15:52:26.671+07:00  INFO 8428 --- [DKStore] [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 12 ms. Found 6 JPA repository interfaces.
+2024-11-21T15:52:26.761+07:00  INFO 8428 --- [DKStore] [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port 8080 (http)
+2024-11-21T15:52:26.761+07:00  INFO 8428 --- [DKStore] [restartedMain] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2024-11-21T15:52:26.761+07:00  INFO 8428 --- [DKStore] [restartedMain] o.apache.catalina.core.StandardEngine    : Starting Servlet engine: [Apache Tomcat/10.1.31]
+2024-11-21T15:52:26.776+07:00  INFO 8428 --- [DKStore] [restartedMain] o.a.c.c.C.[Tomcat-3].[localhost].[/]     : Initializing Spring embedded WebApplicationContext
+2024-11-21T15:52:26.776+07:00  INFO 8428 --- [DKStore] [restartedMain] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 289 ms
+2024-11-21T15:52:26.809+07:00  INFO 8428 --- [DKStore] [restartedMain] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
+2024-11-21T15:52:26.811+07:00  INFO 8428 --- [DKStore] [restartedMain] o.h.c.internal.RegionFactoryInitiator    : HHH000026: Second-level cache disabled
+2024-11-21T15:52:26.816+07:00  INFO 8428 --- [DKStore] [restartedMain] o.s.o.j.p.SpringPersistenceUnitInfo      : No LoadTimeWeaver setup: ignoring JPA class transformer
+2024-11-21T15:52:26.817+07:00  INFO 8428 --- [DKStore] [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-35 - Starting...
+2024-11-21T15:52:26.819+07:00  INFO 8428 --- [DKStore] [restartedMain] com.zaxxer.hikari.pool.HikariPool        : HikariPool-35 - Added connection com.mysql.cj.jdbc.ConnectionImpl@f7900b4
+2024-11-21T15:52:26.819+07:00  INFO 8428 --- [DKStore] [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-35 - Start completed.
+2024-11-21T15:52:26.820+07:00  WARN 8428 --- [DKStore] [restartedMain] org.hibernate.orm.deprecation            : HHH90000025: MySQL8Dialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
+2024-11-21T15:52:26.820+07:00  WARN 8428 --- [DKStore] [restartedMain] org.hibernate.orm.deprecation            : HHH90000026: MySQL8Dialect has been deprecated; use org.hibernate.dialect.MySQLDialect instead
+2024-11-21T15:52:26.891+07:00  INFO 8428 --- [DKStore] [restartedMain] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2024-11-21T15:52:26.916+07:00  INFO 8428 --- [DKStore] [restartedMain] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2024-11-21T15:52:27.049+07:00  WARN 8428 --- [DKStore] [restartedMain] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2024-11-21T15:52:27.056+07:00  INFO 8428 --- [DKStore] [restartedMain] r$InitializeUserDetailsManagerConfigurer : Global AuthenticationManager configured with UserDetailsService bean with name customUserDetailService
+2024-11-21T15:52:27.063+07:00  INFO 8428 --- [DKStore] [restartedMain] o.s.b.a.w.s.WelcomePageHandlerMapping    : Adding welcome page template: index
+2024-11-21T15:52:27.080+07:00 DEBUG 8428 --- [DKStore] [restartedMain] s.w.s.m.m.a.RequestMappingHandlerMapping : 41 mappings in 'requestMappingHandlerMapping'
+2024-11-21T15:52:27.107+07:00 DEBUG 8428 --- [DKStore] [restartedMain] o.s.w.s.handler.SimpleUrlHandlerMapping  : Patterns [/webjars/**, /**] in 'resourceHandlerMapping'
+2024-11-21T15:52:27.120+07:00  WARN 8428 --- [DKStore] [restartedMain] o.s.s.c.a.web.builders.WebSecurity       : You are asking Spring Security to ignore Deferred [Mvc [pattern='/fe/**'], Ant [pattern='/fe/**']]. This is not recommended -- please use permitAll via HttpSecurity#authorizeHttpRequests instead.
+2024-11-21T15:52:27.120+07:00  WARN 8428 --- [DKStore] [restartedMain] o.s.s.c.a.web.builders.WebSecurity       : You are asking Spring Security to ignore Deferred [Mvc [pattern='/assets/**'], Ant [pattern='/assets/**']]. This is not recommended -- please use permitAll via HttpSecurity#authorizeHttpRequests instead.
+2024-11-21T15:52:27.120+07:00  WARN 8428 --- [DKStore] [restartedMain] o.s.s.c.a.web.builders.WebSecurity       : You are asking Spring Security to ignore Deferred [Mvc [pattern='/uploads/**'], Ant [pattern='/uploads/**']]. This is not recommended -- please use permitAll via HttpSecurity#authorizeHttpRequests instead.
+2024-11-21T15:52:27.142+07:00 DEBUG 8428 --- [DKStore] [restartedMain] s.w.s.m.m.a.RequestMappingHandlerAdapter : ControllerAdvice beans: 0 @ModelAttribute, 0 @InitBinder, 1 RequestBodyAdvice, 1 ResponseBodyAdvice
+2024-11-21T15:52:27.147+07:00 DEBUG 8428 --- [DKStore] [restartedMain] .m.m.a.ExceptionHandlerExceptionResolver : ControllerAdvice beans: 0 @ExceptionHandler, 1 ResponseBodyAdvice
+2024-11-21T15:52:27.210+07:00  INFO 8428 --- [DKStore] [restartedMain] o.s.b.d.a.OptionalLiveReloadServer       : LiveReload server is running on port 35729
+2024-11-21T15:52:27.235+07:00  INFO 8428 --- [DKStore] [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port 8080 (http) with context path '/'
+2024-11-21T15:52:27.246+07:00  INFO 8428 --- [DKStore] [restartedMain] com.dkstore.DkStoreApplication           : Started DkStoreApplication in 0.785 seconds (process running for 8072.224)
+2024-11-21T15:52:27.250+07:00  INFO 8428 --- [DKStore] [restartedMain] .ConditionEvaluationDeltaLoggingListener : Condition evaluation unchanged
+2024-11-21T15:52:49.581+07:00  INFO 8428 --- [DKStore] [http-nio-8080-exec-1] o.a.c.c.C.[Tomcat-3].[localhost].[/]     : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2024-11-21T15:52:49.581+07:00  INFO 8428 --- [DKStore] [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
+2024-11-21T15:52:49.581+07:00 DEBUG 8428 --- [DKStore] [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Detected StandardServletMultipartResolver
+2024-11-21T15:52:49.581+07:00 DEBUG 8428 --- [DKStore] [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Detected AcceptHeaderLocaleResolver
+2024-11-21T15:52:49.581+07:00 DEBUG 8428 --- [DKStore] [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Detected FixedThemeResolver
+2024-11-21T15:52:49.582+07:00 DEBUG 8428 --- [DKStore] [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Detected org.springframework.web.servlet.view.DefaultRequestToViewNameTranslator@37caaabb
+2024-11-21T15:52:49.582+07:00 DEBUG 8428 --- [DKStore] [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Detected org.springframework.web.servlet.support.SessionFlashMapManager@57d996ef
+2024-11-21T15:52:49.582+07:00 DEBUG 8428 --- [DKStore] [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : enableLoggingRequestDetails='false': request parameters and headers will be masked to prevent unsafe logging of potentially sensitive data
+2024-11-21T15:52:49.582+07:00  INFO 8428 --- [DKStore] [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Completed initialization in 1 ms
+2024-11-21T15:52:49.582+07:00 DEBUG 8428 --- [DKStore] [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : GET "/login", parameters={}
+2024-11-21T15:52:49.583+07:00 DEBUG 8428 --- [DKStore] [http-nio-8080-exec-1] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped to com.dkstore.controllers.admin.UserController#login()
+2024-11-21T15:52:49.585+07:00 DEBUG 8428 --- [DKStore] [http-nio-8080-exec-1] o.s.w.s.v.ContentNegotiatingViewResolver : Selected 'text/html' given [text/html, application/xhtml+xml, image/avif, image/webp, image/apng, application/xml;q=0.9, */*;q=0.8, application/signed-exchange;v=b3;q=0.7]
+2024-11-21T15:52:49.608+07:00 DEBUG 8428 --- [DKStore] [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Completed 200 OK
+2024-11-21T15:52:49.669+07:00 DEBUG 8428 --- [DKStore] [http-nio-8080-exec-2] o.s.web.servlet.DispatcherServlet        : GET "/assets/css/estilos.css", parameters={}
+2024-11-21T15:52:49.669+07:00 DEBUG 8428 --- [DKStore] [http-nio-8080-exec-2] o.s.w.s.handler.SimpleUrlHandlerMapping  : Mapped to ResourceHttpRequestHandler [classpath [META-INF/resources/], classpath [resources/], classpath [static/], classpath [public/], ServletContext [/]]
+2024-11-21T15:52:49.671+07:00 DEBUG 8428 --- [DKStore] [http-nio-8080-exec-2] o.s.web.servlet.DispatcherServlet        : Completed 200 OK
+2024-11-21T15:52:49.671+07:00 DEBUG 8428 --- [DKStore] [http-nio-8080-exec-3] o.s.web.servlet.DispatcherServlet        : GET "/assets/js/jquery-3.3.1.min.js", parameters={}
+2024-11-21T15:52:49.672+07:00 DEBUG 8428 --- [DKStore] [http-nio-8080-exec-4] o.s.web.servlet.DispatcherServlet        : GET "/assets/js/form.js", parameters={}
+2024-11-21T15:52:49.672+07:00 DEBUG 8428 --- [DKStore] [http-nio-8080-exec-3] o.s.w.s.handler.SimpleUrlHandlerMapping  : Mapped to ResourceHttpRequestHandler [classpath [META-INF/resources/], classpath [resources/], classpath [static/], classpath [public/], ServletContext [/]]
+2024-11-21T15:52:49.672+07:00 DEBUG 8428 --- [DKStore] [http-nio-8080-exec-5] o.s.web.servlet.DispatcherServlet        : GET "/assets/img/logo3.jfif", parameters={}
+2024-11-21T15:52:49.672+07:00 DEBUG 8428 --- [DKStore] [http-nio-8080-exec-4] o.s.w.s.handler.SimpleUrlHandlerMapping  : Mapped to ResourceHttpRequestHandler [classpath [META-INF/resources/], classpath [resources/], classpath [static/], classpath [public/], ServletContext [/]]
+2024-11-21T15:52:49.672+07:00 DEBUG 8428 --- [DKStore] [http-nio-8080-exec-5] o.s.w.s.handler.SimpleUrlHandlerMapping  : Mapped to ResourceHttpRequestHandler [classpath [META-INF/resources/], classpath [resources/], classpath [static/], classpath [public/], ServletContext [/]]
+2024-11-21T15:52:49.674+07:00 DEBUG 8428 --- [DKStore] [http-nio-8080-exec-4] o.s.web.servlet.DispatcherServlet        : Completed 200 OK
+2024-11-21T15:52:49.674+07:00 DEBUG 8428 --- [DKStore] [http-nio-8080-exec-3] o.s.web.servlet.DispatcherServlet        : Completed 200 OK
+2024-11-21T15:52:49.674+07:00 DEBUG 8428 --- [DKStore] [http-nio-8080-exec-5] o.s.web.servlet.DispatcherServlet        : Completed 200 OK
+2024-11-21T15:53:02.905+07:00  WARN 8428 --- [DKStore] [http-nio-8080-exec-6] o.s.s.c.bcrypt.BCryptPasswordEncoder     : Encoded password does not look like BCrypt
+2024-11-21T15:53:02.916+07:00 DEBUG 8428 --- [DKStore] [http-nio-8080-exec-7] o.s.web.servlet.DispatcherServlet        : GET "/account-not-confirmed?username=K@gmail.com", parameters={masked}
+2024-11-21T15:53:02.916+07:00 DEBUG 8428 --- [DKStore] [http-nio-8080-exec-7] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped to com.dkstore.controllers.admin.UserController#accountNotConfirmed(String, Model)
+2024-11-21T15:53:02.918+07:00 DEBUG 8428 --- [DKStore] [http-nio-8080-exec-7] o.s.w.s.v.ContentNegotiatingViewResolver : Selected 'text/html' given [text/html, application/xhtml+xml, image/avif, image/webp, image/apng, application/xml;q=0.9, */*;q=0.8, application/signed-exchange;v=b3;q=0.7]
+2024-11-21T15:53:02.919+07:00 DEBUG 8428 --- [DKStore] [http-nio-8080-exec-7] o.s.web.servlet.DispatcherServlet        : Completed 200 OK
+2024-11-21T15:53:33.004+07:00  INFO 8428 --- [DKStore] [File Watcher] rtingClassPathChangeChangedEventListener : Restarting due to 1 class path change (0 additions, 0 deletions, 1 modification)
+2024-11-21T15:53:33.037+07:00  INFO 8428 --- [DKStore] [Thread-136] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
+2024-11-21T15:53:33.037+07:00  INFO 8428 --- [DKStore] [Thread-136] com.zaxxer.hikari.HikariDataSource       : HikariPool-35 - Shutdown initiated...
+2024-11-21T15:53:33.038+07:00  INFO 8428 --- [DKStore] [Thread-136] com.zaxxer.hikari.HikariDataSource       : HikariPool-35 - Shutdown completed.
